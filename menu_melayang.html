@@ -1,0 +1,241 @@
+<!-- =====================================================================
+  GENTLEMAN'S FORGE BARBERSHOP - BLOGGER WIDGET: MENU MELAYANG (HTML9)
+  File: menu_melayang.html
+  Instruksi: Copy-paste seluruh isi file ini ke Widget "Menu Melayang" di Tata Letak Blogger.
+===================================================================== -->
+
+<style>
+  :root {
+    --gf-gold: #C59D5F;
+    --gf-gold-hover: #dfb574;
+    --gf-bg-nav: rgba(18, 18, 18, 0.92);
+    --gf-border-nav: rgba(197, 157, 95, 0.28);
+  }
+
+  /* Fixed Top Floating Navbar with Backdrop Blur */
+  .gf-navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background: var(--gf-bg-nav);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--gf-border-nav);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+  }
+
+  .gf-nav-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Brand / Logo */
+  .gf-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none !important;
+  }
+
+  .gf-brand img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .gf-brand-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .gf-brand-title span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    color: var(--gf-gold);
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  /* Menu Links */
+  .gf-menu-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 22px;
+  }
+
+  .gf-menu-list li a {
+    color: #D1D5DB;
+    text-decoration: none !important;
+    font-size: 0.88rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    padding: 6px 0;
+    position: relative;
+  }
+
+  .gf-menu-list li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gf-gold);
+    transition: width 0.3s ease;
+  }
+
+  .gf-menu-list li a:hover {
+    color: var(--gf-gold);
+  }
+
+  .gf-menu-list li a:hover::after {
+    width: 100%;
+  }
+
+  /* Quick CTA Button */
+  .gf-btn-cta-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #C59D5F 0%, #9E7D47 100%);
+    color: #121212 !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 9px 20px;
+    border-radius: 30px;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(197, 157, 95, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .gf-btn-cta-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 157, 95, 0.55);
+    background: linear-gradient(135deg, #dfb574 0%, #b89153 100%);
+  }
+
+  /* Mobile Hamburger Toggle */
+  .gf-mobile-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--gf-border-nav);
+    color: var(--gf-gold);
+    font-size: 1.4rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 991px) {
+    .gf-mobile-toggle {
+      display: block;
+    }
+    .gf-menu-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(18, 18, 18, 0.98);
+      flex-direction: column;
+      padding: 20px 0;
+      gap: 16px;
+      border-bottom: 1px solid var(--gf-border-nav);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    }
+    .gf-menu-list.show {
+      display: flex;
+    }
+    .gf-nav-cta-wrap {
+      display: none;
+    }
+  }
+</style>
+
+<nav class="gf-navbar-wrapper" id="gfNavbar">
+  <div class="gf-nav-container">
+    <!-- Brand Logo -->
+    <a href="#home" class="gf-brand">
+      <img src="https://1.bp.blogspot.com/--KdXEY6UfLw/XBsauiP1LaI/AAAAAAAAB4w/_D-q8kBZwpQ3VKrQtk-Alj4V8UqUlTxzwCLcBGAs/s480/logo.png" alt="Gentleman's Forge Logo" />
+      <div class="gf-brand-title">
+        Gentleman's Forge
+        <span>KOTA BATU &bull; BARBERSHOP</span>
+      </div>
+    </a>
+
+    <!-- Menu Anchor Links -->
+    <ul class="gf-menu-list" id="gfNavMenu">
+      <li><a href="#home" class="gf-nav-link">Home</a></li>
+      <li><a href="#about" class="gf-nav-link">Tentang</a></li>
+      <li><a href="#layanan" class="gf-nav-link">Layanan</a></li>
+      <li><a href="#galeri" class="gf-nav-link">Galeri</a></li>
+      <li><a href="#booking" class="gf-nav-link">Booking</a></li>
+      <li><a href="#lokasi" class="gf-nav-link">Lokasi</a></li>
+    </ul>
+
+    <!-- Quick CTA Booking Button -->
+    <div class="gf-nav-cta-wrap">
+      <a href="#booking" class="gf-btn-cta-nav">
+        <i class="bi bi-calendar-check"></i> Booking Kursi
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="gf-mobile-toggle" id="gfMenuToggle" aria-label="Toggle Menu">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+</nav>
+
+<script>
+  (function() {
+    const toggleBtn = document.getElementById('gfMenuToggle');
+    const menuList = document.getElementById('gfNavMenu');
+    const links = document.querySelectorAll('.gf-nav-link');
+
+    if (toggleBtn && menuList) {
+      toggleBtn.addEventListener('click', function() {
+        menuList.classList.toggle('show');
+        const icon = toggleBtn.querySelector('i');
+        if (menuList.classList.contains('show')) {
+          icon.className = 'bi bi-x-lg';
+        } else {
+          icon.className = 'bi bi-list';
+        }
+      });
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if (menuList && menuList.classList.contains('show')) {
+          menuList.classList.remove('show');
+          if (toggleBtn) toggleBtn.querySelector('i').className = 'bi bi-list';
+        }
+      });
+    });
+  })();
+</script>
+

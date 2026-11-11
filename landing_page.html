@@ -1,0 +1,1143 @@
+<!-- =====================================================================
+  GENTLEMAN'S FORGE BARBERSHOP - BLOGGER WIDGET: LANDING PAGE DI SINI (HTML3)
+  File: landing_page.html
+  Instruksi: Copy-paste seluruh isi file ini ke Widget "Landing Page Di Sini" di Tata Letak Blogger.
+===================================================================== -->
+
+<!-- Bootstrap 5.3 CDN & Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  /* Global Luxury Dark Variables & Reset Scoped */
+  #gf-landing-page {
+    --bg-dark: #121212;
+    --bg-surface: #1A1D24;
+    --bg-surface-elevated: #242832;
+    --color-gold: #C59D5F;
+    --color-gold-hover: #dfb574;
+    --text-primary: #FFFFFF;
+    --text-muted: #9CA3AF;
+    --border-color: rgba(197, 157, 95, 0.22);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    padding-top: 65px; /* Offset sticky navbar */
+  }
+
+  #gf-landing-page * {
+    box-sizing: border-box !important;
+  }
+
+  #gf-landing-page h1, 
+  #gf-landing-page h2, 
+  #gf-landing-page h3, 
+  #gf-landing-page h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  .gf-gold-text {
+    color: var(--color-gold) !important;
+  }
+
+  .gf-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .gf-section-subtitle {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-gold);
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .gf-section-title {
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 14px;
+  }
+
+  .gf-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65px;
+    height: 3px;
+    background: var(--color-gold);
+  }
+
+  /* Buttons */
+  .gf-btn-gold {
+    background: linear-gradient(135deg, #C59D5F 0%, #9E7D47 100%);
+    color: #121212 !important;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(197, 157, 95, 0.3);
+    text-decoration: none !important;
+    display: inline-block;
+  }
+
+  .gf-btn-gold:hover {
+    background: linear-gradient(135deg, #dfb574 0%, #b89153 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 157, 95, 0.5);
+  }
+
+  .gf-btn-outline {
+    background: transparent;
+    color: #FFFFFF !important;
+    border: 1px solid var(--color-gold);
+    border-radius: 4px;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    display: inline-block;
+  }
+
+  .gf-btn-outline:hover {
+    background: rgba(197, 157, 95, 0.15);
+    color: var(--color-gold) !important;
+  }
+
+  /* 1. HERO SECTION */
+  .gf-hero {
+    min-height: 85vh;
+    background: linear-gradient(180deg, rgba(18,18,18,0.72) 0%, rgba(18,18,18,0.96) 100%), 
+                url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 85px 0;
+  }
+
+  .gf-hero-badge {
+    background: rgba(197, 157, 95, 0.15);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .gf-hero-title {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .gf-hero-lead {
+    color: #D1D5DB;
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin-bottom: 35px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* 2. ABOUT & BENTO GRID SECTION */
+  .gf-about-section {
+    padding: 90px 0;
+    background: var(--bg-dark);
+  }
+
+  .gf-about-img-wrap {
+    position: relative;
+    padding: 15px;
+  }
+
+  .gf-about-img-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    border: 2px solid var(--color-gold);
+    z-index: 1;
+    border-radius: 4px;
+  }
+
+  .gf-about-img {
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  }
+
+  .gf-bento-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    height: 100%;
+  }
+
+  .gf-bento-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-gold);
+  }
+
+  .gf-bento-icon {
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+  }
+
+  /* 3. SERVICES SECTION (Menu Restaurant Style) */
+  .gf-services-section {
+    padding: 90px 0;
+    background: #0D0F12;
+  }
+
+  .gf-menu-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: border-color 0.3s ease;
+  }
+
+  .gf-menu-item:hover {
+    border-color: var(--border-color);
+  }
+
+  .gf-menu-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  .gf-menu-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .gf-menu-dots {
+    flex: 1;
+    border-bottom: 1px dashed rgba(197, 157, 95, 0.4);
+    margin: 0 12px;
+  }
+
+  .gf-menu-price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--color-gold);
+    font-size: 1.1rem;
+  }
+
+  .gf-menu-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* 4. MASTER BARBER SECTION */
+  .gf-team-section {
+    padding: 90px 0;
+    background: var(--bg-dark);
+  }
+
+  .gf-barber-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .gf-barber-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-color);
+  }
+
+  .gf-barber-img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+  }
+
+  .gf-barber-info {
+    padding: 20px;
+  }
+
+  .gf-barber-name {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+  }
+
+  .gf-barber-role {
+    font-size: 0.8rem;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  /* 5. LOOKBOOK GALERI */
+  .gf-gallery-section {
+    padding: 90px 0;
+    background: #0D0F12;
+  }
+
+  .gf-filter-btn {
+    background: #1A1D24;
+    border: 1px solid rgba(197, 157, 95, 0.3);
+    color: #D1D5DB;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    transition: all 0.25s ease;
+  }
+
+  .gf-filter-btn.active, .gf-filter-btn:hover {
+    background: #C59D5F;
+    color: #121212;
+    border-color: #C59D5F;
+    font-weight: 600;
+  }
+
+  .gf-gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 260px;
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+  }
+
+  .gf-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gf-gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .gf-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(18, 18, 18, 0.95) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  .gf-gallery-title {
+    font-size: 1rem;
+    margin: 0;
+    color: #FFFFFF;
+  }
+
+  .gf-gallery-sub {
+    font-size: 0.78rem;
+    color: var(--color-gold);
+  }
+
+  /* 6. BOOKING & LIVE QUEUE */
+  .gf-booking-section {
+    padding: 90px 0;
+    background: var(--bg-dark);
+  }
+
+  .gf-card-form {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+
+  .gf-input-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #D1D5DB;
+    margin-bottom: 6px;
+  }
+
+  .gf-control {
+    background-color: var(--bg-dark) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: #FFFFFF !important;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .gf-control:focus {
+    border-color: var(--color-gold) !important;
+    box-shadow: 0 0 0 0.2rem rgba(197, 157, 95, 0.25) !important;
+  }
+
+  .gf-queue-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 25px;
+    height: 100%;
+  }
+
+  .gf-queue-item {
+    background: var(--bg-surface-elevated);
+    border-left: 3px solid var(--color-gold);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .gf-badge-status {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .badge-waiting {
+    background: rgba(234, 179, 8, 0.15);
+    color: #EAB308;
+    border: 1px solid #EAB308;
+  }
+
+  .badge-confirmed {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+    border: 1px solid #22C55E;
+  }
+</style>
+
+<div id="gf-landing-page">
+
+  <!-- ================= 1. HERO SECTION ================= -->
+  <section id="home" class="gf-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="gf-hero-badge" id="gfStoreStatusBadge">
+            <span class="spinner-grow spinner-grow-sm text-success" role="status" style="width: 8px; height: 8px;"></span>
+            <span id="gfStoreStatusText">Memeriksa Jam Buka...</span>
+          </div>
+          <h1 class="gf-hero-title">
+            Seni Cukur Presisi Untuk <br/>
+            <span class="gf-gold-text">Karakter Pria Sejati</span>
+          </h1>
+          <p class="gf-hero-lead">
+            Studio grooming premium di Kota Batu. Sentuhan kapster berpengalaman, sterilisasi alat medis, dan atmosfer maskulin yang tenang untuk penampilan prima Anda.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#booking" class="gf-btn-gold">
+              <i class="bi bi-scissors me-1"></i> Booking Kursi Sekarang
+            </a>
+            <a href="#layanan" class="gf-btn-outline">
+              <i class="bi bi-journal-text me-1"></i> Lihat Menu Layanan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. TENTANG & KEUNGGULAN (BENTO GRID) ================= -->
+  <section id="about" class="gf-about-section">
+    <div class="container">
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="gf-about-img-wrap">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80" alt="Gentleman's Forge Studio" class="gf-about-img"/>
+          </div>
+        </div>
+        <div class="col-lg-6 ps-lg-4">
+          <span class="gf-section-subtitle">Tentang Kami</span>
+          <h2 class="mb-3">Dedikasi Pada Gaya & Kenyamanan Anda</h2>
+          <p class="text-secondary mb-4" style="line-height: 1.8;">
+            Gentleman's Forge Barbershop didirikan di Kota Batu untuk menghidupkan tradisi potong rambut pria klasik yang dipadukan dengan teknik modern kontemporer. Kami mengutamakan detail, konsultasi bentuk wajah, serta privasi dan kenyamanan setiap tamu.
+          </p>
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill gf-gold-text fs-5"></i>
+                <span class="fw-semibold">100% Garansi Rapih</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill gf-gold-text fs-5"></i>
+                <span class="fw-semibold">Produk Grooming Premium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Grid Fasilitas -->
+      <div class="gf-section-header mt-5">
+        <span class="gf-section-subtitle">Fasilitas Eksklusif</span>
+        <h3 class="gf-section-title">Kenapa Memilih Kami?</h3>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 col-sm-6">
+          <div class="gf-bento-card">
+            <i class="bi bi-snow gf-bento-icon"></i>
+            <h5 class="text-white">Ruang Full AC Dingin</h5>
+            <p class="text-secondary small mb-0">Ruang tunggu dan area potong sejuk dan wangi aroma kayu cedar alami.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="gf-bento-card">
+            <i class="bi bi-shield-check gf-bento-icon"></i>
+            <h5 class="text-white">Sterilisasi UV Alat</h5>
+            <p class="text-secondary small mb-0">Semua gunting, clipper, dan pisau silet disterilkan dengan sinar UV sebelum digunakan.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="gf-bento-card">
+            <i class="bi bi-wifi gf-bento-icon"></i>
+            <h5 class="text-white">Wi-Fi Cepat 100 Mbps</h5>
+            <p class="text-secondary small mb-0">Koneksi internet stabil untuk bekerja atau streaming santai selama menunggu.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="gf-bento-card">
+            <i class="bi bi-cup-hot gf-bento-icon"></i>
+            <h5 class="text-white">Free Artisan Coffee</h5>
+            <p class="text-secondary small mb-0">Kopi hitam tubruk atau teh melati gratis disajikan untuk setiap pelanggan reservasi.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="gf-bento-card">
+            <i class="bi bi-droplet-half gf-bento-icon"></i>
+            <h5 class="text-white">Handuk Hangat Herbal</h5>
+            <p class="text-secondary small mb-0">Kompres relaksasi handuk hangat dengan minyak esensial aromaterapi peppermint.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="gf-bento-card">
+            <i class="bi bi-p-square gf-bento-icon"></i>
+            <h5 class="text-white">Area Parkir Luas</h5>
+            <p class="text-secondary small mb-0">Lahan parkir mobil dan motor memadai dilengkapi pantauan CCTV 24 jam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. KATALOG LAYANAN & HARGA ================= -->
+  <section id="layanan" class="gf-services-section">
+    <div class="container">
+      <div class="gf-section-header">
+        <span class="gf-section-subtitle">Daftar Menu Layanan</span>
+        <h2 class="gf-section-title">Harga Jelas & Transparan</h2>
+      </div>
+
+      <div class="row">
+        <!-- Kolom Kiri -->
+        <div class="col-lg-6">
+          <div class="gf-menu-item">
+            <div class="gf-menu-head">
+              <span class="gf-menu-name">Gentleman Executive Cut</span>
+              <span class="gf-menu-dots"></span>
+              <span class="gf-menu-price">Rp 45.000</span>
+            </div>
+            <div class="gf-menu-desc">
+              <span>Konsultasi, Cuci Rambut, Potong Presisi, Pijat Kepala & Styling Pomade</span>
+              <button class="btn btn-sm btn-outline-warning text-gold py-0 px-2" onclick="pilihPaket('Gentleman Executive Cut')">Pilih</button>
+            </div>
+          </div>
+
+          <div class="gf-menu-item">
+            <div class="gf-menu-head">
+              <span class="gf-menu-name">Classic Quick Cut</span>
+              <span class="gf-menu-dots"></span>
+              <span class="gf-menu-price">Rp 30.000</span>
+            </div>
+            <div class="gf-menu-desc">
+              <span>Potongan rambut cepat, rapi, dan presisi tanpa cuci (30 Menit)</span>
+              <button class="btn btn-sm btn-outline-warning text-gold py-0 px-2" onclick="pilihPaket('Classic Quick Cut')">Pilih</button>
+            </div>
+          </div>
+
+          <div class="gf-menu-item">
+            <div class="gf-menu-head">
+              <span class="gf-menu-name">Hot Towel Beard Shave</span>
+              <span class="gf-menu-dots"></span>
+              <span class="gf-menu-price">Rp 25.000</span>
+            </div>
+            <div class="gf-menu-desc">
+              <span>Cukur janggut/kumis tradisional dengan busa hangat & silet steril</span>
+              <button class="btn btn-sm btn-outline-warning text-gold py-0 px-2" onclick="pilihPaket('Hot Towel Beard Shave')">Pilih</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan -->
+        <div class="col-lg-6">
+          <div class="gf-menu-item">
+            <div class="gf-menu-head">
+              <span class="gf-menu-name">Royal Grooming Package</span>
+              <span class="gf-menu-dots"></span>
+              <span class="gf-menu-price">Rp 65.000</span>
+            </div>
+            <div class="gf-menu-desc">
+              <span>Executive Cut + Shave + Face Scrub Masker Lumpur + Tonik Rambut</span>
+              <button class="btn btn-sm btn-outline-warning text-gold py-0 px-2" onclick="pilihPaket('Royal Grooming Package')">Pilih</button>
+            </div>
+          </div>
+
+          <div class="gf-menu-item">
+            <div class="gf-menu-head">
+              <span class="gf-menu-name">Kids Smart Cut</span>
+              <span class="gf-menu-dots"></span>
+              <span class="gf-menu-price">Rp 25.000</span>
+            </div>
+            <div class="gf-menu-desc">
+              <span>Cukur rambut anak ramah & sabar dengan gaya modis</span>
+              <button class="btn btn-sm btn-outline-warning text-gold py-0 px-2" onclick="pilihPaket('Kids Smart Cut')">Pilih</button>
+            </div>
+          </div>
+
+          <div class="gf-menu-item">
+            <div class="gf-menu-head">
+              <span class="gf-menu-name">Black Hair Dye / Coloring</span>
+              <span class="gf-menu-dots"></span>
+              <span class="gf-menu-price">Rp 50.000</span>
+            </div>
+            <div class="gf-menu-desc">
+              <span>Pewarnaan hitam alami untuk uban atau toning warna rambut maskulin</span>
+              <button class="btn btn-sm btn-outline-warning text-gold py-0 px-2" onclick="pilihPaket('Black Hair Dye / Coloring')">Pilih</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. MASTER BARBERS ================= -->
+  <section id="team" class="gf-team-section">
+    <div class="container">
+      <div class="gf-section-header">
+        <span class="gf-section-subtitle">Kapster Berpengalaman</span>
+        <h2 class="gf-section-title">Tim Master Barber</h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- Barber 1: Adit -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gf-barber-card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeNwv1QtsGCxz6a-_QOpXI1FhqxV23RCduTsmuVYXtglTUqxjhIa1kPLXOgJ7XQJE6kAGE7ULmgzRAnAgEE3lPVYx_GFO3rJyYA7G3Samiw7rboXEJzJ-i6UeQcMxEyRLUErMXTTvNYISkkew75TRbavkUuRKelfyfJaD7lQQlqbMkfzbL6bK3QHQUXvTz/s1600/Adit.jpg" alt="Adit" class="gf-barber-img"/>
+            <div class="gf-barber-info">
+              <h5 class="gf-barber-name">Adit</h5>
+              <div class="gf-barber-role">Fade & Taper Specialist</div>
+              <p class="text-secondary small mb-3">Pengalaman 7 tahun, ahli dalam potongan gradasi halus dan skin fade bersih.</p>
+              <button class="btn btn-sm gf-btn-outline w-100" onclick="pilihBarber('Adit')">Booking Adit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barber 2: Bima -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gf-barber-card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkm5Bs5AT9eaO5oFRebZNTOvMAmp9jc2IHpQ038XOSfn-RvPqn7YHDuKHrKQcJk6JsKl3lh6aWT6z7Ix0vIx2RUnCc9NixQQ0qRM4A-hatXCNXZBxlbI4ccFm3-obM77fkMKnm_GAvltGoTDoWZbEFXDGHiE-KGAk_M5y0IPxCG7tpYpmK8x9POEu6fp9P/s1600/Bima.jpg" alt="Bima" class="gf-barber-img"/>
+            <div class="gf-barber-info">
+              <h5 class="gf-barber-name">Bima</h5>
+              <div class="gf-barber-role">Classic & Scissor Master</div>
+              <p class="text-secondary small mb-3">Spesialis model vintage, pompadour, side part rapi, dan teknik gunting tekstur.</p>
+              <button class="btn btn-sm gf-btn-outline w-100" onclick="pilihBarber('Bima')">Booking Bima</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barber 3: Doni -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gf-barber-card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7BEAzrVoVkzdjfKWz1PnIS_NCWK6TQ2vfwnOvWLJidlWtZ-v9SZvUcnSCKEZb2nhwNT0Ax8WQWdBnnzZzMqvHEodKEin4DR83GjqpXAc_XwGMn6ehjcZryni_RpSzCs1QlwAWolZpSSVkLQ5DBfNheIjGoVcOXDwq56qkqKSYCNMWp9A1LxN-Xd2Z_gs_/s1600/Doni.jpg" alt="Doni" class="gf-barber-img"/>
+            <div class="gf-barber-info">
+              <h5 class="gf-barber-name">Doni</h5>
+              <div class="gf-barber-role">Beard & Grooming Stylist</div>
+              <p class="text-secondary small mb-3">Pakar shaving tradisional silet lipat dan penataan janggut sesuai anatomi wajah.</p>
+              <button class="btn btn-sm gf-btn-outline w-100" onclick="pilihBarber('Doni')">Booking Doni</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barber 4: Rian -->
+        <div class="col-lg-3 col-md-6">
+          <div class="gf-barber-card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPQa_OATakmdcUEVkIPRbbY2e9d3dQMZT8hEmLqa7WPcR90Rf1gwMs3798x89JCT4iB_CR0JvuNXnQR1hoAnWl-y2EpwBwTXEqlZEOiJrPdgiNPfjNr88Q_wlPIiSg-CoWLsXg8Umx16glcVeBtthSSOYR42KjOeaLGy-_4DZqI92BjKK9YsAi34THR2GL/s1600/Rian.jpg" alt="Rian" class="gf-barber-img"/>
+            <div class="gf-barber-info">
+              <h5 class="gf-barber-name">Rian</h5>
+              <div class="gf-barber-role">Modern Texture & Mullet</div>
+              <p class="text-secondary small mb-3">Pakar model two block, comma hair, mullet kontemporer, dan french crop kekinian.</p>
+              <button class="btn btn-sm gf-btn-outline w-100" onclick="pilihBarber('Rian')">Booking Rian</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. LOOKBOOK GALERI & FILTER ================= -->
+  <section id="galeri" class="gf-gallery-section">
+    <div class="container">
+      <div class="gf-section-header">
+        <span class="gf-section-subtitle">Lookbook Portofolio</span>
+        <h2 class="gf-section-title">Katalog Gaya Rambut Populer</h2>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+        <button class="btn btn-sm gf-filter-btn active" data-filter="all">Semua Gaya</button>
+        <button class="btn btn-sm gf-filter-btn" data-filter="fade">Fade Style</button>
+        <button class="btn btn-sm gf-filter-btn" data-filter="classic">Classic Cut</button>
+        <button class="btn btn-sm gf-filter-btn" data-filter="modern">Modern Texture</button>
+      </div>
+
+      <div class="row g-3" id="gfGalleryGrid">
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="fade">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Low Fade Pompadour"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">Low Fade Pompadour</h6>
+              <span class="gf-gallery-sub">Fade Style</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="modern">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80" alt="Textured French Crop"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">Textured French Crop</h6>
+              <span class="gf-gallery-sub">Modern Texture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="modern">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="Two Block Korean Cut"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">Two Block Taper</h6>
+              <span class="gf-gallery-sub">Modern Texture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="fade">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1517832606589-7629c339590a?auto=format&fit=crop&w=600&q=80" alt="High Skin Fade"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">High & Tight Skin Fade</h6>
+              <span class="gf-gallery-sub">Fade Style</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="modern">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=600&q=80" alt="Curly Top Taper"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">Curly Taper Fade</h6>
+              <span class="gf-gallery-sub">Modern Texture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="classic">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Classic Side Part"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">Classic Gentleman Part</h6>
+              <span class="gf-gallery-sub">Classic Cut</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="modern">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" alt="Modern Mullet"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">Modern Soft Mullet</h6>
+              <span class="gf-gallery-sub">Modern Texture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 gf-gallery-col" data-category="fade">
+          <div class="gf-gallery-item">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80" alt="Buzz Cut Line Up"/>
+            <div class="gf-gallery-overlay">
+              <h6 class="gf-gallery-title">Buzz Cut + Razor Line</h6>
+              <span class="gf-gallery-sub">Fade Style</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. FORM BOOKING & LIVE QUEUE (FIRESTORE) ================= -->
+  <section id="booking" class="gf-booking-section">
+    <div class="container">
+      <div class="gf-section-header">
+        <span class="gf-section-subtitle">Online Reservation</span>
+        <h2 class="gf-section-title">Pesan Kursi Tanpa Antre</h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- Kolom Form Reservasi -->
+        <div class="col-lg-7">
+          <div class="gf-card-form">
+            <h4 class="mb-4 text-white"><i class="bi bi-calendar2-week gf-gold-text me-2"></i> Form Reservasi Jadwal</h4>
+            
+            <form id="formBooking">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="gf-input-label">Nama Lengkap *</label>
+                  <input type="text" id="namaPelanggan" class="form-control gf-control" placeholder="Contoh: Pratama Nugraha" required/>
+                </div>
+                
+                <div class="col-md-6">
+                  <label class="gf-input-label">Nomor WhatsApp *</label>
+                  <input type="tel" id="noWa" class="form-control gf-control" placeholder="Contoh: 081234567890" required/>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="gf-input-label">Pilihan Layanan *</label>
+                  <select id="paketLayanan" class="form-select gf-control" required>
+                    <option value="" disabled selected>-- Pilih Menu Cukur --</option>
+                    <option value="Gentleman Executive Cut (Rp 45K)">Gentleman Executive Cut (Rp 45K)</option>
+                    <option value="Classic Quick Cut (Rp 30K)">Classic Quick Cut (Rp 30K)</option>
+                    <option value="Hot Towel Beard Shave (Rp 25K)">Hot Towel Beard Shave (Rp 25K)</option>
+                    <option value="Royal Grooming Package (Rp 65K)">Royal Grooming Package (Rp 65K)</option>
+                    <option value="Kids Smart Cut (Rp 25K)">Kids Smart Cut (Rp 25K)</option>
+                    <option value="Black Hair Dye / Coloring (Rp 50K)">Black Hair Dye / Coloring (Rp 50K)</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="gf-input-label">Pilihan Master Barber</label>
+                  <select id="custBarber" class="form-select gf-control">
+                    <option value="Bebas / Barber Tersedia" selected>Bebas / Siapapun yang Siap</option>
+                    <option value="Adit (Fade Specialist)">Adit (Fade Specialist)</option>
+                    <option value="Bima (Classic & Scissor)">Bima (Classic & Scissor)</option>
+                    <option value="Doni (Shave & Beard)">Doni (Shave & Beard)</option>
+                    <option value="Rian (Modern Texture)">Rian (Modern Texture)</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="gf-input-label">Tanggal & Jam Booking *</label>
+                  <input type="text" id="jamBooking" class="form-control gf-control" placeholder="Contoh: Besok @ 14:30 WIB" required/>
+                </div>
+
+                <div class="col-12">
+                  <label class="gf-input-label">Catatan Tambahan (Opsional)</label>
+                  <textarea id="custNotes" class="form-control gf-control" rows="2" placeholder="Catatan khusus, misal: potong rapi untuk wisuda / bawa anak kecil"></textarea>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" id="btnSubmitBooking" class="gf-btn-gold w-100 py-3">
+                    <i class="bi bi-send-fill me-1"></i> Kirim & Konfirmasi Reservasi
+                  </button>
+                </div>
+              </div>
+            </form>
+            
+            <div id="bookingAlert" class="mt-3" style="display: none;"></div>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan: Live Antrean Firestore -->
+        <div class="col-lg-5">
+          <div class="gf-queue-box">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h5 class="mb-0 text-white"><i class="bi bi-broadcast text-danger me-2"></i> Live Antrean Masuk</h5>
+              <span class="badge bg-dark border border-secondary text-light"><span id="queueCounter">0</span> Booking Hari Ini</span>
+            </div>
+            
+            <p class="text-secondary small">Data terhubung langsung dengan Firebase Firestore. Pesanan yang masuk otomatis tampil di bawah:</p>
+
+            <div id="daftarAntrean" style="max-height: 440px; overflow-y: auto; padding-right: 5px;">
+              <!-- Item Antrean Real-time dari Firestore -->
+              <div class="text-center py-4 text-muted small">
+                <i class="bi bi-hourglass-split fs-3 mb-2 d-block gf-gold-text"></i>
+                Memuat antrean real-time dari database...
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded" style="background: rgba(197, 157, 95, 0.1); border: 1px solid var(--border-color);">
+              <div class="d-flex gap-2">
+                <i class="bi bi-info-circle-fill gf-gold-text fs-5"></i>
+                <span class="small text-secondary">
+                  Harap hadir 10 menit sebelum jam kedatangan Anda. Jika terlambat lebih dari 15 menit, nomor antrean dapat diserahkan ke pelanggan walk-in.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Helper Functions (Auto-Select Layanan & Filter Galeri) -->
+<script>
+  function pilihPaket(namaPaket) {
+    const select = document.getElementById('paketLayanan') || document.getElementById('custService');
+    if (select) {
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value.includes(namaPaket)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function pilihBarber(namaBarber) {
+    const select = document.getElementById('custBarber');
+    if (select) {
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value.includes(namaBarber)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Set default min date untuk booking
+  document.addEventListener('DOMContentLoaded', () => {
+    const dateInput = document.getElementById('custDate');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      dateInput.value = today;
+    }
+
+    // Filter Galeri Interaktif
+    const filterButtons = document.querySelectorAll('.gf-filter-btn');
+    const galleryItems = document.querySelectorAll('.gf-gallery-col');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filterVal = this.getAttribute('data-filter');
+        galleryItems.forEach(item => {
+          if (filterVal === 'all' || item.getAttribute('data-category') === filterVal) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<!-- ================= 7. FIREBASE V10 MODULAR INTEGRATION ================= -->
+<script type="module">
+//<![CDATA[
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { 
+    getFirestore, 
+    collection, 
+    addDoc, 
+    onSnapshot, 
+    query, 
+    orderBy, 
+    limit, 
+    serverTimestamp 
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  // Konfigurasi Firebase Proyek Anda
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY9bHoSIXwHVRP0cwg09CN8uBAjtqw6hw",
+    authDomain: "barberr-5bca8.firebaseapp.com",
+    projectId: "barberr-5bca8",
+    storageBucket: "barberr-5bca8.firebasestorage.app",
+    messagingSenderId: "134075026496",
+    appId: "1:134075026496:web:62a5e8a78e4af3e479e3a5"
+  };
+
+  // Inisialisasi Firebase & Cloud Firestore
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Referensi Elemen DOM
+  const formBooking = document.getElementById('formBooking');
+  const daftarAntrean = document.getElementById('daftarAntrean');
+  const alertBox = document.getElementById('bookingAlert');
+  const counterSpan = document.getElementById('queueCounter');
+
+  // ================= 1. FORM BOOKING (Create ke Firestore) =================
+  if (formBooking) {
+    formBooking.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nama = document.getElementById('namaPelanggan')?.value.trim() || '';
+      const wa = document.getElementById('noWa')?.value.trim() || '';
+      const paket = document.getElementById('paketLayanan')?.value || '';
+      const jam = document.getElementById('jamBooking')?.value.trim() || '';
+      const barber = document.getElementById('custBarber')?.value || 'Bebas';
+      const catatan = document.getElementById('custNotes')?.value.trim() || '-';
+      const btnSubmit = formBooking.querySelector('button[type="submit"]');
+
+      if (btnSubmit) {
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Menyimpan...';
+      }
+
+      try {
+        // Simpan ke koleksi 'bookings'
+        await addDoc(collection(db, "bookings"), {
+          nama: nama,
+          wa: wa,
+          paket: paket,
+          jadwal: jam,
+          barber: barber,
+          catatan: catatan,
+          status: "Terjadwal",
+          createdAt: serverTimestamp()
+        });
+
+        // Tampilkan notifikasi sukses
+        if (alertBox) {
+          alertBox.style.display = 'block';
+          alertBox.className = 'alert alert-success d-flex align-items-center gap-2 small';
+          alertBox.innerHTML = '<i class="bi bi-check-circle-fill fs-5"></i><div><strong>Reservasi Berhasil!</strong> Jadwal antrean Anda telah tersimpan di sistem.</div>';
+        } else {
+          alert("Reservasi Berhasil! Jadwal antrean Anda telah tersimpan.");
+        }
+
+        // Reset form
+        formBooking.reset();
+
+      } catch (err) {
+        console.error("Gagal mengirim reservasi:", err);
+        if (alertBox) {
+          alertBox.style.display = 'block';
+          alertBox.className = 'alert alert-danger small';
+          alertBox.textContent = "Terjadi kendala saat menyimpan. Silakan coba beberapa saat lagi.";
+        } else {
+          alert("Gagal mengirim data reservasi. Silakan periksa koneksi internet Anda.");
+        }
+      } finally {
+        if (btnSubmit) {
+          btnSubmit.disabled = false;
+          btnSubmit.innerHTML = '<i class="bi bi-send-fill me-1"></i> Kirim & Konfirmasi Reservasi';
+        }
+      }
+    });
+  }
+
+  // ================= 2. LIVE ANTREAN REAL-TIME (Read dari Firestore) =================
+  if (daftarAntrean) {
+    try {
+      // Query 5 antrean terbaru berdasarkan createdAt desc
+      const q = query(
+        collection(db, "bookings"),
+        orderBy("createdAt", "desc"),
+        limit(5)
+      );
+
+      onSnapshot(q, (snapshot) => {
+        if (snapshot.empty) {
+          daftarAntrean.innerHTML = '<div class="text-center py-4 text-muted small"><i class="bi bi-inbox fs-4 mb-2 d-block"></i>Belum ada antrean masuk saat ini.</div>';
+          if (counterSpan) counterSpan.textContent = '0';
+          return;
+        }
+
+        if (counterSpan) counterSpan.textContent = snapshot.size;
+
+        daftarAntrean.innerHTML = snapshot.docs.map(doc => {
+          const item = doc.data();
+          // Sensor nama belakang untuk privasi publik
+          const parts = (item.nama || 'Tamu').trim().split(' ');
+          const maskedName = parts[0] + (parts[1] ? ' ' + parts[1].charAt(0) + '***' : '');
+          
+          return `
+            <div class="gf-queue-item" style="background:#242832; border-left:3px solid #C59D5F; padding:12px 16px; border-radius:4px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-weight:700; color:#FFFFFF; font-size:0.88rem;">${maskedName}</div>
+                <div style="font-size:0.75rem; color:#9CA3AF;">
+                  <span style="color:#C59D5F;">${item.paket || 'Layanan Cukur'}</span> &bull; ${item.barber ? 'Barber: ' + item.barber : ''}
+                </div>
+                <div style="font-size:0.7rem; color:#6B7280; margin-top:2px;">
+                  <i class="bi bi-clock me-1"></i> ${item.jadwal || 'Hari Ini'}
+                </div>
+              </div>
+              <div>
+                <span class="badge" style="background:rgba(34,197,94,0.15); color:#22C55E; border:1px solid #22C55E; font-size:0.72rem; padding:4px 8px; border-radius:20px;">
+                  <i class="bi bi-check2-circle me-1"></i> ${item.status || 'Terjadwal'}
+                </span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }, (error) => {
+        console.warn("Gagal membaca antrean Firestore:", error);
+        daftarAntrean.innerHTML = '<div class="text-center py-4 text-danger small"><i class="bi bi-exclamation-triangle fs-4 mb-2 d-block"></i>Gagal memuat antrean real-time.</div>';
+      });
+    } catch (err) {
+      console.warn("Inisialisasi query live queue gagal:", err);
+    }
+  }
+//]]>
+</script>
+

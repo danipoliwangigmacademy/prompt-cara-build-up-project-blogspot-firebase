@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel Antrean | Gentleman's Forge Barbershop</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #0E1015;
+      color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      padding: 30px 15px;
+    }
+    .gf-admin-card {
+      background-color: #1A1D24;
+      border: 1px solid rgba(197, 157, 95, 0.25);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .table-dark {
+      background-color: transparent !important;
+    }
+    .badge-terjadwal {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+      border: 1px solid #3B82F6;
+    }
+    .badge-proses {
+      background: rgba(234, 179, 8, 0.15);
+      color: #FACC15;
+      border: 1px solid #EAB308;
+    }
+    .badge-selesai {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ADE80;
+      border: 1px solid #22C55E;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container max-w-5xl">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h3 class="fw-bold mb-1" style="color: #C59D5F;"><i class="bi bi-scissors me-2"></i>Dashboard Kasir & Kapster</h3>
+        <p class="text-secondary small mb-0">Kelola dan perbarui status antrean pelanggan secara real-time</p>
+      </div>
+      <div>
+        <span class="badge bg-dark border border-secondary px-3 py-2">
+          Total Antrean Aktif: <strong id="totalQueueBadge" class="text-warning">0</strong>
+        </span>
+      </div>
+    </div>
+
+    <div class="gf-admin-card mb-4">
+      <div class="table-responsive">
+        <table class="table table-dark table-hover align-middle mb-0">
+          <thead>
+            <tr style="border-bottom: 2px solid rgba(197, 157, 95, 0.3); font-size: 0.85rem; color: #C59D5F;">
+              <th>NAMA PELANGGAN</th>
+              <th>WHATSAPP</th>
+              <th>LAYANAN</th>
+              <th>JADWAL</th>
+              <th>STATUS</th>
+              <th class="text-end">TINDAKAN</th>
+            </tr>
+          </thead>
+          <tbody id="adminQueueTable">
+            <tr>
+              <td colspan="6" class="text-center py-4 text-muted small">
+                <div class="spinner-border spinner-border-sm text-warning me-2" role="status"></div>
+                Menghubungkan ke database Firebase Firestore...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="text-center text-muted small">
+      Gentleman's Forge Barbershop &bull; Kota Batu &bull; Terhubung ke Project: <code>barberr-5bca8</code>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { 
+      getFirestore, 
+      collection, 
+      doc, 
+      updateDoc, 
+      deleteDoc, 
+      onSnapshot, 
+      query, 
+      orderBy 
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDY9bHoSIXwHVRP0cwg09CN8uBAjtqw6hw",
+      authDomain: "barberr-5bca8.firebaseapp.com",
+      projectId: "barberr-5bca8",
+      storageBucket: "barberr-5bca8.firebasestorage.app",
+      messagingSenderId: "134075026496",
+      appId: "1:134075026496:web:62a5e8a78e4af3e479e3a5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const tableBody = document.getElementById('adminQueueTable');
+    const totalBadge = document.getElementById('totalQueueBadge');
+
+    // Real-time listener semua booking
+    const q = query(collection(db, "bookings"), orderBy("createdAt", "desc"));
+    onSnapshot(q, (snapshot) => {
+      totalBadge.textContent = snapshot.size;
+
+      if (snapshot.empty) {
+        tableBody.innerHTML = '<tr><td colspan="6" class="text-center py-4 text-muted">Belum ada data reservasi masuk.</td></tr>';
+        return;
+      }
+
+      tableBody.innerHTML = snapshot.docs.map(docSnap => {
+        const d = docSnap.data();
+        const id = docSnap.id;
+        const status = d.status || 'Terjadwal';
+
+        let badgeClass = 'badge-terjadwal';
+        if (status === 'Sedang Cukur') badgeClass = 'badge-proses';
+        if (status === 'Selesai') badgeClass = 'badge-selesai';
+
+        // Format link WA
+        let waClean = (d.wa || '').replace(/\D/g, '');
+        if (waClean.startsWith('0')) waClean = '62' + waClean.slice(1);
+
+        return `
+          <tr>
+            <td>
+              <strong class="text-white">${d.nama || '-'}</strong>
+            </td>
+            <td>
+              <a href="https://wa.me/${waClean}" target="_blank" class="text-decoration-none text-info small">
+                <i class="bi bi-whatsapp text-success me-1"></i>${d.wa || '-'}
+              </a>
+            </td>
+            <td><span class="small" style="color: #C59D5F;">${d.paket || '-'}</span></td>
+            <td><span class="small text-secondary">${d.jadwal || '-'}</span></td>
+            <td>
+              <span class="badge ${badgeClass} px-2 py-1">${status}</span>
+            </td>
+            <td class="text-end">
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-outline-warning py-0" title="Mulai Cukur" onclick="updateStatus('${id}', 'Sedang Cukur')">
+                  <i class="bi bi-scissors"></i> Cukur
+                </button>
+                <button class="btn btn-outline-success py-0" title="Selesai" onclick="updateStatus('${id}', 'Selesai')">
+                  <i class="bi bi-check-lg"></i> Selesai
+                </button>
+                <button class="btn btn-outline-danger py-0" title="Hapus" onclick="hapusBooking('${id}')">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    });
+
+    // Expose fungsi update & delete ke global window
+    window.updateStatus = async (id, statusBaru) => {
+      try {
+        await updateDoc(doc(db, "bookings", id), { status: statusBaru });
+      } catch (err) {
+        alert("Gagal memperbarui status. Pastikan izin Firestore Rules mengizinkan update!");
+        console.error(err);
+      }
+    };
+
+    window.hapusBooking = async (id) => {
+      if (confirm("Apakah Anda yakin ingin menghapus antrean ini?")) {
+        try {
+          await deleteDoc(doc(db, "bookings", id));
+        } catch (err) {
+          alert("Gagal menghapus antrean. Pastikan izin Firestore Rules mengizinkan delete!");
+          console.error(err);
+        }
+      }
+    };
+  </script>
+</body>
+</html>
+

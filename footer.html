@@ -1,0 +1,244 @@
+<!-- =====================================================================
+  GENTLEMAN'S FORGE BARBERSHOP - BLOGGER WIDGET: FOOTER (HTML1)
+  File: footer.html
+  Instruksi: Copy-paste seluruh isi file ini ke Widget "Footer" di Tata Letak Blogger.
+===================================================================== -->
+
+<style>
+  .gf-footer-wrapper {
+    background-color: #0A0B0E;
+    color: #9CA3AF;
+    font-family: 'Poppins', sans-serif;
+    border-top: 1px solid rgba(197, 157, 95, 0.25);
+    padding: 70px 0 25px 0;
+  }
+
+  .gf-footer-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  .gf-footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background: #C59D5F;
+  }
+
+  .gf-footer-text {
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+
+  .gf-footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .gf-footer-list li {
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .gf-footer-list li i {
+    color: #C59D5F;
+    font-size: 1.1rem;
+    margin-top: 2px;
+  }
+
+  .gf-social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .gf-social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #1A1D24;
+    border: 1px solid rgba(197, 157, 95, 0.3);
+    color: #C59D5F;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+  }
+
+  .gf-social-icon:hover {
+    background: #C59D5F;
+    color: #121212 !important;
+    transform: translateY(-3px);
+  }
+
+  .gf-maps-embed {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gf-copyright-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 50px;
+    padding-top: 25px;
+    font-size: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Floating WhatsApp Button (Mobile & Desktop) */
+  .gf-float-wa {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF !important;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .gf-float-wa i {
+    font-size: 1.35rem;
+  }
+
+  .gf-float-wa:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+  }
+
+  .gf-float-wa-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+    border: 2px solid #25D366;
+    animation: gfPulse 2s infinite ease-out;
+    pointer-events: none;
+  }
+
+  @keyframes gfPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.25); opacity: 0; }
+  }
+
+  @media (max-width: 576px) {
+    .gf-float-wa span {
+      display: none;
+    }
+    .gf-float-wa {
+      padding: 14px;
+      border-radius: 50%;
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>
+
+<footer class="gf-footer-wrapper" id="lokasi">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Kolom 1: Profil & Brand -->
+      <div class="col-lg-4 col-md-6">
+        <h5 class="gf-footer-title">Gentleman's Forge</h5>
+        <p class="gf-footer-text">
+          Studio potong rambut pria modern di Kota Batu. Menggabungkan seni pangkas rambut klasik dengan kenyamanan kelas atas. Tingkatkan rasa percaya diri Anda melalui sentuhan tangan kapster terbaik.
+        </p>
+        <div class="gf-social-links">
+          <a href="https://instagram.com" target="_blank" class="gf-social-icon" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://tiktok.com" target="_blank" class="gf-social-icon" title="TikTok"><i class="bi bi-tiktok"></i></a>
+          <a href="https://wa.me/6281234567890" target="_blank" class="gf-social-icon" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://maps.google.com" target="_blank" class="gf-social-icon" title="Google Maps"><i class="bi bi-geo-alt-fill"></i></a>
+        </div>
+      </div>
+
+      <!-- Kolom 2: Jam Operasional & Alamat -->
+      <div class="col-lg-4 col-md-6">
+        <h5 class="gf-footer-title">Jam Operasional</h5>
+        <ul class="gf-footer-list">
+          <li>
+            <i class="bi bi-calendar3"></i>
+            <span><strong>Senin - Sabtu:</strong> 10:00 - 21:00 WIB</span>
+          </li>
+          <li>
+            <i class="bi bi-calendar3"></i>
+            <span><strong>Minggu & Hari Libur:</strong> 12:00 - 20:00 WIB</span>
+          </li>
+          <li>
+            <i class="bi bi-geo-alt"></i>
+            <span>Jl. Pattimura No. 45, Temas, Kec. Batu, Kota Batu, Jawa Timur 65315</span>
+          </li>
+          <li>
+            <i class="bi bi-telephone"></i>
+            <span>+62 812-3456-7890</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Peta Lokasi Google Maps -->
+      <div class="col-lg-4 col-md-12">
+        <h5 class="gf-footer-title">Peta Lokasi Studio</h5>
+        <div class="gf-maps-embed">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15807.471900115044!2d125.5256247!3d-7.8722668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788755018659d7%3A0x8bd42c4b2ffb384f!2sTemas%2C%20Batu%2C%20Kota%20Batu%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+            width="100%" 
+            height="180" 
+            style="border:0; display: block;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Baris Hak Cipta -->
+    <div class="gf-copyright-bar">
+      <div>
+        &copy; 2026 <strong>Gentleman's Forge Barbershop</strong>. All Rights Reserved.
+      </div>
+      <div class="text-secondary mt-2 mt-md-0">
+        Crafted for Gentleman's Grooming Excellence &bull; Kota Batu
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Tombol WhatsApp Melayang -->
+<a href="https://wa.me/6281234567890?text=Halo%20Gentleman's%20Forge%20Barbershop,%20saya%20ingin%20tanya%20jadwal%20dan%20layanan" 
+   target="_blank" 
+   class="gf-float-wa" 
+   title="Hubungi Kami di WhatsApp">
+  <div class="gf-float-wa-pulse"></div>
+  <i class="bi bi-whatsapp"></i>
+  <span>Chat WhatsApp</span>
+</a>
+
